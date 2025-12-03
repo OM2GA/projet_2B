@@ -12,6 +12,9 @@
     /* Le Vert d'eau/Teal */
     --teal-dark: #00796b;
 
+    /* Couleur texte sombre pour le contraste */
+    --text-dark: #2c3e50;
+
     /* Typographie */
     --font-title: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
@@ -134,7 +137,7 @@ h5,
     width: 100%;
 }
 
-/* --- HERO SECTION GEOMETRIQUE --- */
+/* --- HERO SECTION GEOMETRIQUE (CORRECTION CONTRASTE) --- */
 .hero-section {
     position: relative;
     height: 85vh;
@@ -144,6 +147,30 @@ h5,
     overflow: hidden;
     margin-top: 60px;
     /* Pour la navbar fixed */
+}
+
+/* 1. On force la couleur du texte global de la hero section en gris foncé */
+.hero-section .container {
+    color: var(--text-dark) !important;
+}
+
+/* 2. Le Grand Titre en GRIS FONCÉ (Modifié selon votre demande) */
+.hero-section h1.display-3 {
+    color: var(--text-dark) !important;
+    text-shadow: none;
+    font-weight: 900;
+}
+
+/* 3. La date en GRIS FONCÉ */
+.hero-section p.h3 {
+    color: var(--text-dark) !important;
+    text-shadow: none;
+    font-weight: 600;
+}
+
+/* 4. On s'assure que le texte DANS les boutons reste blanc */
+.hero-section .btn {
+    color: #fff !important;
 }
 
 /* Formes abstraites en fond (CSS Shapes) */
