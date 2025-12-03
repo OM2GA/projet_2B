@@ -96,7 +96,8 @@ h5,
 /* Bouton principal (Vert du flyer "Andrésy") */
 .btn-accent {
     background-color: var(--teal-color);
-    color: white;
+    color: white !important;
+    /* Force le texte blanc ici */
     border: none;
     transition: all 0.3s ease;
 }
@@ -104,7 +105,7 @@ h5,
 .btn-accent:hover {
     background-color: var(--teal-dark);
     transform: translateY(-2px);
-    color: white;
+    color: white !important;
 }
 
 /* --- NAVBAR MATERIAL --- */
@@ -154,7 +155,7 @@ h5,
     color: var(--text-dark) !important;
 }
 
-/* 2. Le Grand Titre en GRIS FONCÉ (Modifié selon votre demande) */
+/* 2. Le Grand Titre en GRIS FONCÉ */
 .hero-section h1.display-3 {
     color: var(--text-dark) !important;
     text-shadow: none;
@@ -168,10 +169,7 @@ h5,
     font-weight: 600;
 }
 
-/* 4. On s'assure que le texte DANS les boutons reste blanc */
-.hero-section .btn {
-    color: #fff !important;
-}
+/* REMOVED: La règle qui forçait le texte des boutons en blanc a été supprimée */
 
 /* Formes abstraites en fond (CSS Shapes) */
 .shape-bg {
