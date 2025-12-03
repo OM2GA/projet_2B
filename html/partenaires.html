@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Partenaires - Les 20 Bornes d'Andrésy</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Style pour harmoniser les logos */
+        .partner-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .partner-logo {
+            max-height: 100px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            /* Optionnel : Logos en gris par défaut */
+            transition: filter 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0%);
+            /* La couleur revient au survol */
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo 20 bornes.png" alt="Logo 20 Bornes" height="50"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="epreuves.html">Les Épreuves</a></li>
+                    <li class="nav-item"><a class="nav-link" href="inscriptions.html">Inscriptions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="infos.html">Infos Pratiques</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galerie.html">Galerie</a></li>
+                    <li class="nav-item"><a class="nav-link active text-primary" href="partenaires.html">Partenaires</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white py-5 mt-5">
+        <div class="container text-center py-4">
+            <h1 class="display-4 fw-black text-uppercase">Nos Partenaires</h1>
+            <p class="lead fw-light">Ils soutiennent l'événement et rendent la course possible.</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+
+        <div class="mb-5 text-center">
+            <h2 class="fw-bold text-dark mb-4 position-relative d-inline-block">
+                Partenaires Institutionnels
+                <span class="position-absolute start-0 bottom-0 w-100 bg-primary"
+                    style="height: 3px; opacity: 0.2;"></span>
+            </h2>
+            <div class="row g-4 justify-content-center align-items-center mt-2">
+                <div class="col-6 col-md-3">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/andresy.jpg" alt="Ville d'Andrésy" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/yveline_departement.png" alt="Département des Yvelines"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/grand_paris.jpg" alt="Grand Paris Seine & Oise"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/office_municipal_des_sports.jpg" alt="OMS Andrésy"
+                            class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-5 text-center">
+            <h2 class="fw-bold text-dark mb-4 position-relative d-inline-block">
+                Sponsors Officiels
+                <span class="position-absolute start-0 bottom-0 w-100 bg-orange"
+                    style="height: 3px; opacity: 0.2;"></span>
+            </h2>
+            <div class="row g-4 justify-content-center mt-2">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/Logo-Leclerc.jpg" alt="E.Leclerc" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/sport2000.jpg" alt="Sport 2000" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/Logo-Passion-Running-carreV1.jpg" alt="Passion Running"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/renault.jpg" alt="Renault Glatigny" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/DAVRIL.jpg" alt="Davril" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/weelodge.jpg" alt="Weelodge" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/keepcool.jpg" alt="Keep Cool" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/allsportvision.jpg" alt="All Sport Vision" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/RDV.jpg" alt="RDV France" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/roussely.jpg" alt="Roussely" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/reva9.jpg" alt="Reva 9" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/AirBhappy.jpg" alt="AirBhappy" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-5 text-center">
+            <h2 class="fw-bold text-dark mb-4 position-relative d-inline-block">
+                Soutiens Locaux
+                <span class="position-absolute start-0 bottom-0 w-100 bg-teal"
+                    style="height: 3px; opacity: 0.2;"></span>
+            </h2>
+            <div class="row g-4 justify-content-center mt-2">
+                <div class="col-6 col-md-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/boulangeriebeaufils.jpg" alt="Boulangerie Beaufils"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/boulangeriegare.jpg" alt="Boulangerie de la Gare"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/tablemarocaine.jpg" alt="La Table Marocaine"
+                            class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/terminus.jpg" alt="Le Terminus" class="partner-logo">
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="partner-card rounded-4 shadow-sm">
+                        <img src="../images/partenaires/princesse.jpg" alt="Princesse Lucinda" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light p-5 rounded-4 text-center mt-5">
+            <h3 class="fw-bold text-dark mb-3">Devenir Partenaire ?</h3>
+            <p class="text-muted mb-4">Associez votre image aux 20 Bornes d'Andrésy et bénéficiez d'une visibilité
+                locale forte.</p>
+            <a href="mailto:sports@andresy.com" class="btn btn-outline-primary rounded-pill px-5">
+                <i class="bi bi-envelope me-2"></i> Nous contacter
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <img src="../images/logo 20 bornes fond.png" alt="Logo Blanc" height="60"
+                        class="mb-4 opacity-75 grayscale">
+                    <p class="text-white-50">L'événement sportif incontournable des Yvelines.</p>
+                    <div class="d-flex gap-3 social-links">
+                        <a href="https://www.facebook.com/20bornes" target="_blank"
+                            class="text-white rounded-circle bg-white bg-opacity-10 d-flex align-items-center justify-content-center"
+                            style="width:40px; height:40px;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h5 class="text-white fw-bold mb-3">Course</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="epreuves.html" class="text-reset text-decoration-none">Distances</a>
+                        </li>
+                        <li class="mb-2"><a href="inscriptions.html" class="text-reset text-decoration-none">Tarifs</a>
+                        </li>
+                        <li class="mb-2"><a href="inscriptions.html#reglement"
+                                class="text-reset text-decoration-none">Règlement</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="text-white fw-bold mb-3">Infos</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="infos.html" class="text-reset text-decoration-none">Accès</a></li>
+                        <li class="mb-2"><a href="infos.html#retrait" class="text-reset text-decoration-none">Retrait
+                                dossards</a></li>
+                        <li class="mb-2"><a href="partenaires.html"
+                                class="text-reset text-decoration-none">Partenaires</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white fw-bold mb-3">Contact</h5>
+                    <p class="text-white-50 mb-1"><i class="bi bi-envelope me-2"></i> sports@andresy.com</p>
+                    <p class="text-white-50"><i class="bi bi-telephone me-2"></i> 01 39 74 66 03</p>
+                </div>
+            </div>
+            <div class="border-top border-white border-opacity-10 pt-3 text-center text-white-50 small">
+                <p class="mb-0">© 2025 Les 20 Bornes d'Andrésy. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
