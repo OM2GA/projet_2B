@@ -1,0 +1,290 @@
+/* --- VARIABLES & COULEURS (DA Flyer) --- */
+:root {
+    /* Couleurs extraites du Flyer */
+    --primary-color: #B00058;
+    /* Le Rose Framboise foncé */
+    --primary-light: #fce4ec;
+    /* Fond très clair rose */
+    --orange-color: #FF8F6B;
+    /* Le Corail/Saumon */
+    --orange-light: #fff3e0;
+    --teal-color: #009688;
+    /* Le Vert d'eau/Teal */
+    --teal-dark: #00796b;
+
+    /* Typographie */
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.btn {
+    font-family: var(--font-title);
+}
+
+/* --- UTILITAIRES COULEURS --- */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.text-orange {
+    color: var(--orange-color) !important;
+}
+
+.bg-orange {
+    background-color: var(--orange-color) !important;
+}
+
+.bg-orange-light {
+    background-color: var(--orange-light) !important;
+}
+
+.btn-outline-orange {
+    color: var(--orange-color);
+    border-color: var(--orange-color);
+}
+
+.btn-outline-orange:hover {
+    background-color: var(--orange-color);
+    color: white;
+}
+
+.text-teal {
+    color: var(--teal-color) !important;
+}
+
+.text-accent {
+    color: var(--teal-color) !important;
+}
+
+.bg-teal {
+    background-color: var(--teal-color) !important;
+}
+
+.btn-outline-teal {
+    color: var(--teal-color);
+    border-color: var(--teal-color);
+}
+
+.btn-outline-teal:hover {
+    background-color: var(--teal-color);
+    color: white;
+}
+
+/* Bouton principal (Vert du flyer "Andrésy") */
+.btn-accent {
+    background-color: var(--teal-color);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background-color: var(--teal-dark);
+    transform: translateY(-2px);
+    color: white;
+}
+
+/* --- NAVBAR MATERIAL --- */
+.navbar .nav-link {
+    font-weight: 500;
+    color: #555;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Petit soulignement animé façon Material */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--orange-color);
+    transition: width 0.3s;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    width: 100%;
+}
+
+/* --- HERO SECTION GEOMETRIQUE --- */
+.hero-section {
+    position: relative;
+    height: 85vh;
+    /* Prend presque tout l'écran */
+    min-height: 600px;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    margin-top: 60px;
+    /* Pour la navbar fixed */
+}
+
+/* Formes abstraites en fond (CSS Shapes) */
+.shape-bg {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.shape-pink {
+    width: 60vw;
+    height: 60vw;
+    background-color: var(--primary-color);
+    top: -20%;
+    left: -10%;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 8s ease-in-out infinite;
+}
+
+.shape-orange {
+    width: 50vw;
+    height: 50vw;
+    background-color: var(--orange-color);
+    bottom: -10%;
+    right: -10%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 10s ease-in-out infinite reverse;
+}
+
+.shape-teal {
+    width: 30vw;
+    height: 30vw;
+    background-color: var(--teal-color);
+    top: 20%;
+    right: 20%;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+
+    50% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    100% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+}
+
+.title-shadow {
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CARTES "BORNES" (Le design clé) --- */
+.card-borne {
+    border-radius: 20px;
+    /* Coins arrondis bas */
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    background: white;
+}
+
+.card-borne-header {
+    height: 180px;
+    /* C'est ici qu'on fait la forme de la borne : arrondi en haut */
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    margin: 15px 15px 0 15px;
+    /* Petit espace pour détacher la tête */
+    position: relative;
+}
+
+/* Effet hachuré du flyer (optionnel, pour le style) */
+.card-borne-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 10px,
+            transparent 10px,
+            transparent 20px);
+    pointer-events: none;
+}
+
+.shadow-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+}
+
+/* --- ICON SQUARES --- */
+.icon-square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bg-primary-light {
+    background-color: rgba(176, 0, 88, 0.1);
+}
+
+/* --- FOOTER --- */
+footer .social-links a {
+    transition: background 0.3s;
+}
+
+footer .social-links a:hover {
+    background: var(--orange-color) !important;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.grayscale:hover {
+    filter: grayscale(0%);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 8rem 0 4rem 0;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+    }
+}
