@@ -99,33 +99,36 @@ h5,
 }
 
 
+/* --- NOUVEAU STYLE NAVBAR (Style MD3 / Fun) --- */
+
 .navbar .nav-link {
-    font-weight: 500;
+    font-weight: 600; /* Un peu plus gras pour la lisibilité */
     color: #555;
     position: relative;
-    padding-bottom: 5px;
+    padding: 0.5rem 1.2rem !important; /* Plus d'espace pour créer le bouton */
+    border-radius: 50px; /* La forme "Pilule" typique de Material Design 3 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animation fluide et rebondissante */
+    margin: 0 2px; /* Espacement entre les boutons */
 }
 
-.navbar .nav-link.active,
-.navbar .nav-link:hover {
+/* État Actif : Bouton rempli avec la couleur primaire */
+.navbar .nav-link.active {
+    background-color: var(--primary-color);
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(176, 0, 88, 0.3); /* Ombre douce colorée */
+    transform: translateY(-1px);
+}
+
+/* État Survol (Hover) : Fond léger et texte coloré */
+.navbar .nav-link:hover:not(.active) {
+    background-color: var(--primary-light); /* Fond rose très pâle */
     color: var(--primary-color);
+    transform: scale(1.05); /* Effet de "pop" amusant */
 }
 
-
+/* On supprime l'ancien soulignement (l'effet ::after) */
 .navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--orange-color);
-    transition: width 0.3s;
-}
-
-.navbar .nav-link:hover::after,
-.navbar .nav-link.active::after {
-    width: 100%;
+    display: none;
 }
 
 
