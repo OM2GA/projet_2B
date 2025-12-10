@@ -25,18 +25,34 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('scroll', toggleBackToTopButton);
 
         // Écouter le clic sur le bouton pour remonter
+        // Écouter le clic sur le bouton pour remonter
         backToTopBtn.addEventListener('click', () => {
-            // Fallback manuel pour garantir l'animation
-            const scrollDuration = 500; // Durée en ms
-            const scrollStep = -window.scrollY / (scrollDuration / 15);
+            // Désactiver temporairement le scroll-behavior CSS pour éviter les conflits
+            // qui ralentissent considérablement le scroll sur mobile
+            document.documentElement.style.scrollBehavior = 'auto';
 
-            const scrollInterval = setInterval(() => {
-                if (window.scrollY !== 0) {
-                    window.scrollBy(0, scrollStep);
+            const start = window.scrollY;
+            const duration = 300; // Rapide et fluide (300ms)
+            const startTime = performance.now();
+
+            const animateScroll = (currentTime) => {
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+
+                // Easing function (easeOutCubic) pour un effet naturel
+                const ease = 1 - Math.pow(1 - progress, 3);
+
+                window.scrollTo(0, start - (start * ease));
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
                 } else {
-                    clearInterval(scrollInterval);
+                    // Restaurer le comportement CSS original si nécessaire, ou laisser auto pour éviter d'autres conflits
+                    document.documentElement.style.removeProperty('scroll-behavior');
                 }
-            }, 15);
+            };
+
+            requestAnimationFrame(animateScroll);
         });
 
         // Vérification initiale au chargement
