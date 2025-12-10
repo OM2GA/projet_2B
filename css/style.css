@@ -325,3 +325,56 @@ footer .social-links a:hover {
 .pulse-animation {
     animation: pulse-accent 2s infinite;
 }
+
+/* --- AMÉLIORATION MENU MOBILE (À ajouter à la fin du fichier) --- */
+
+@media (max-width: 991.98px) {
+
+    /* 1. Le conteneur du menu (fond blanc, coins arrondis, ombre) */
+    .navbar-collapse {
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 0 0 20px 20px; /* Arrondi le bas du menu */
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Ombre portée douce */
+        border-top: 1px solid rgba(0,0,0,0.05);
+        margin-top: 10px;
+    }
+
+    /* 2. Espace entre les boutons */
+    .navbar-nav {
+        gap: 10px; 
+    }
+
+    /* 3. Transformer les liens en boutons larges */
+    .navbar .nav-link {
+        display: block;
+        width: 100%;
+        text-align: center; /* Centre le texte */
+        background-color: #f8f9fa; /* Fond gris clair par défaut */
+        color: var(--text-dark);
+        font-weight: 700;
+        padding: 12px 0 !important; /* Hauteur confortable pour le doigt */
+        border-radius: 12px; /* Forme douce */
+        border: 1px solid transparent;
+        transition: all 0.2s ease-in-out;
+        margin: 0 !important; /* Réinitialise les marges du bureau */
+    }
+
+    /* 4. Effet quand on touche/survole le bouton */
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+        background-color: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color); /* Bordure rose */
+        transform: translateY(-2px); /* Léger effet de soulèvement */
+        box-shadow: 0 4px 10px rgba(176, 0, 88, 0.15);
+    }
+
+    /* 5. Style du bouton "Actif" (la page où on se trouve) */
+    .navbar .nav-link.active {
+        background-color: var(--primary-color);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(176, 0, 88, 0.4);
+        transform: scale(1.02);
+    }
+}
