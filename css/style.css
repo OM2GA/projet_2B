@@ -10,6 +10,10 @@
     --font-body: 'Roboto', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     color: #333;
@@ -102,28 +106,36 @@ h5,
 /* --- NOUVEAU STYLE NAVBAR (Style MD3 / Fun) --- */
 
 .navbar .nav-link {
-    font-weight: 600; /* Un peu plus gras pour la lisibilité */
+    font-weight: 600;
+    /* Un peu plus gras pour la lisibilité */
     color: #555;
     position: relative;
-    padding: 0.5rem 1.2rem !important; /* Plus d'espace pour créer le bouton */
-    border-radius: 50px; /* La forme "Pilule" typique de Material Design 3 */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animation fluide et rebondissante */
-    margin: 0 2px; /* Espacement entre les boutons */
+    padding: 0.5rem 1.2rem !important;
+    /* Plus d'espace pour créer le bouton */
+    border-radius: 50px;
+    /* La forme "Pilule" typique de Material Design 3 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Animation fluide et rebondissante */
+    margin: 0 2px;
+    /* Espacement entre les boutons */
 }
 
 /* État Actif : Bouton rempli avec la couleur primaire */
 .navbar .nav-link.active {
     background-color: var(--primary-color);
     color: white !important;
-    box-shadow: 0 4px 12px rgba(176, 0, 88, 0.3); /* Ombre douce colorée */
+    box-shadow: 0 4px 12px rgba(176, 0, 88, 0.3);
+    /* Ombre douce colorée */
     transform: translateY(-1px);
 }
 
 /* État Survol (Hover) : Fond léger et texte coloré */
 .navbar .nav-link:hover:not(.active) {
-    background-color: var(--primary-light); /* Fond rose très pâle */
+    background-color: var(--primary-light);
+    /* Fond rose très pâle */
     color: var(--primary-color);
-    transform: scale(1.05); /* Effet de "pop" amusant */
+    transform: scale(1.05);
+    /* Effet de "pop" amusant */
 }
 
 /* On supprime l'ancien soulignement (l'effet ::after) */
@@ -334,30 +346,37 @@ footer .social-links a:hover {
     .navbar-collapse {
         background: #ffffff;
         padding: 1.5rem;
-        border-radius: 0 0 20px 20px; /* Arrondi le bas du menu */
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Ombre portée douce */
-        border-top: 1px solid rgba(0,0,0,0.05);
+        border-radius: 0 0 20px 20px;
+        /* Arrondi le bas du menu */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        /* Ombre portée douce */
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
         margin-top: 10px;
     }
 
     /* 2. Espace entre les boutons */
     .navbar-nav {
-        gap: 10px; 
+        gap: 10px;
     }
 
     /* 3. Transformer les liens en boutons larges */
     .navbar .nav-link {
         display: block;
         width: 100%;
-        text-align: center; /* Centre le texte */
-        background-color: #f8f9fa; /* Fond gris clair par défaut */
+        text-align: center;
+        /* Centre le texte */
+        background-color: #f8f9fa;
+        /* Fond gris clair par défaut */
         color: var(--text-dark);
         font-weight: 700;
-        padding: 12px 0 !important; /* Hauteur confortable pour le doigt */
-        border-radius: 12px; /* Forme douce */
+        padding: 12px 0 !important;
+        /* Hauteur confortable pour le doigt */
+        border-radius: 12px;
+        /* Forme douce */
         border: 1px solid transparent;
         transition: all 0.2s ease-in-out;
-        margin: 0 !important; /* Réinitialise les marges du bureau */
+        margin: 0 !important;
+        /* Réinitialise les marges du bureau */
     }
 
     /* 4. Effet quand on touche/survole le bouton */
@@ -365,8 +384,10 @@ footer .social-links a:hover {
     .navbar .nav-link:focus {
         background-color: white;
         color: var(--primary-color);
-        border-color: var(--primary-color); /* Bordure rose */
-        transform: translateY(-2px); /* Léger effet de soulèvement */
+        border-color: var(--primary-color);
+        /* Bordure rose */
+        transform: translateY(-2px);
+        /* Léger effet de soulèvement */
         box-shadow: 0 4px 10px rgba(176, 0, 88, 0.15);
     }
 
@@ -376,5 +397,69 @@ footer .social-links a:hover {
         color: white !important;
         box-shadow: 0 4px 15px rgba(176, 0, 88, 0.4);
         transform: scale(1.02);
+    }
+}
+
+/* =========================================
+   STYLE DU BOUTON RETOUR EN HAUT
+   ========================================= */
+#backToTopBtn {
+    /* Positionnement fixe en bas à droite - Toujours visible */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+    /* Très haut pour être au-dessus de tout */
+
+    /* Dimensions et forme ronde */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    /* Flex pour centrer l'icône */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    /* Couleurs DA : Fond Purple/Pink (Primary), Texte Blanc */
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+
+    /* Ombres et transition */
+    box-shadow: 0 4px 10px rgba(176, 0, 88, 0.3);
+
+    /* État initial : caché */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    /* Part d'un peu plus bas */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Classe ajoutée par le JS quand on scrolle vers le bas */
+#backToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Effet au survol (Hover) */
+#backToTopBtn:hover {
+    background-color: #900048;
+    /* Version plus foncée de #B00058 */
+    transform: translateY(-5px);
+    /* Petite remontée */
+    box-shadow: 0 8px 20px rgba(176, 0, 88, 0.4);
+}
+
+/* Mobile : un peu plus petit et moins proche du bord */
+@media (max-width: 768px) {
+    #backToTopBtn {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
     }
 }
