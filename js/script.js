@@ -61,6 +61,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- FIN AJOUT ---
 
 
+    // --- DÉBUT AJOUT : Logique du Compte à rebours ---
+    const countdownDate = new Date("Nov 29, 2026 08:45:00").getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysElem = document.getElementById("days");
+        const hoursElem = document.getElementById("hours");
+        const minutesElem = document.getElementById("minutes");
+        const secondsElem = document.getElementById("seconds");
+
+        if (daysElem) daysElem.innerText = days;
+        if (hoursElem) hoursElem.innerText = hours;
+        if (minutesElem) minutesElem.innerText = minutes;
+        if (secondsElem) secondsElem.innerText = seconds;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            const countdownContainer = document.getElementById("countdown");
+            if (countdownContainer) {
+                countdownContainer.innerHTML = "<h4 class='text-white fw-bold'>C'est le grand jour !</h4>";
+            }
+        }
+    };
+
+    if (document.getElementById("countdown")) {
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    }
+    // --- FIN AJOUT ---
+
     // Vérification des éléments (Votre code existant)
     const carousel = document.querySelector('.carousel-container');
     // ... etc ...

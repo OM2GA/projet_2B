@@ -62,10 +62,33 @@
             <h1 class="display-3 fw-black text-uppercase mb-2 title-shadow">Les 20 Bornes<br>d'Andrésy</h1>
             <p class="h3 fw-light mb-4 text-shadow">Dimanche 29 Novembre 2026</p>
 
-            <div class="d-flex justify-content-center gap-3 mt-4">
-                <a href="html/inscriptions.html"
-                    class="btn btn-lg btn-accent shadow-lg rounded-pill px-5 text-uppercase fw-bold">S'inscrire</a>
+            <div class="d-flex justify-content-center flex-wrap align-items-start gap-3 mt-4">
+                <div class="text-center">
+                    <button class="btn btn-lg btn-accent shadow-lg rounded-pill px-5 text-uppercase fw-bold"
+                        disabled>Bientôt ouvert</button>
+                    <p class="small text-white-50 mt-2">Inscriptions prochainement</p>
+                </div>
                 <a href="html/epreuves.html" class="btn btn-lg btn-outline-dark rounded-pill px-4 fw-bold">Parcours</a>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div id="countdown" class="mt-5 d-flex justify-content-center gap-3">
+                <div class="countdown-item">
+                    <span id="days" class="display-5 fw-bold">--</span>
+                    <span class="d-block small text-uppercase">Jours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="display-5 fw-bold">--</span>
+                    <span class="d-block small text-uppercase">Heures</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="display-5 fw-bold">--</span>
+                    <span class="d-block small text-uppercase">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="display-5 fw-bold">--</span>
+                    <span class="d-block small text-uppercase">Sec</span>
+                </div>
             </div>
         </div>
         <div class="shape-bg shape-pink"></div>
@@ -90,7 +113,7 @@
                         </div>
                         <div class="card-body text-center p-4">
                             <h5 class="card-title fw-bold text-uppercase">Semi-Marathon</h5>
-                            <p class="card-text text-muted mb-3">Départ 08h45 <br> Label Régional</p>
+                            <p class="card-text text-muted mb-3">Départ 08h45</p>
                             <a href="html/epreuves.html#semi"
                                 class="btn btn-outline-primary rounded-pill stretched-link">Détails</a>
                         </div>
@@ -105,7 +128,7 @@
                         </div>
                         <div class="card-body text-center p-4">
                             <h5 class="card-title fw-bold text-uppercase">La Classique</h5>
-                            <p class="card-text text-muted mb-3">Départ 09h45 <br> Label Régional</p>
+                            <p class="card-text text-muted mb-3">Départ 09h45</p>
                             <a href="html/epreuves.html#10km"
                                 class="btn btn-outline-orange rounded-pill stretched-link">Détails</a>
                         </div>
@@ -230,7 +253,9 @@
                 </div>
             </div>
             <div class="border-top border-white border-opacity-10 pt-3 text-center text-white-50 small">
-                <p class="mb-0">&copy; 2026 Les 20 Bornes d'Andrésy. Tous droits réservés.</p>
+                <p class="mb-0">&copy; 2026 Les 20 Bornes d'Andrésy. Tous droits réservés. | Site réalisé par <a
+                        href="https://www.linkedin.com/in/maxence-c-62aaa0264" target="_blank"
+                        class="text-white-50 text-decoration-none border-bottom border-secondary">Maxence Coste</a></p>
             </div>
         </div>
     </footer>
