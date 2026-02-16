@@ -232,16 +232,22 @@ h5,
 
 .card-borne {
     border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-    background: white
+    overflow: visible;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: transparent;
+    border: none;
 }
 
 .card-borne-header {
     height: 180px;
     border-radius: 50% 50% 0 0 / 40% 40% 0 0;
     margin: 15px 15px 0 15px;
-    position: relative
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-borne:hover .card-borne-header {
+    transform: scale(1.05);
 }
 
 .card-borne-header::before {
