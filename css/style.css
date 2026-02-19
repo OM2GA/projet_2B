@@ -175,7 +175,8 @@ h5,
     position: absolute;
     border-radius: 50%;
     z-index: 1;
-    opacity: 0.9
+    opacity: 0.9;
+    box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.4);
 }
 
 .shape-pink {
