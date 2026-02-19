@@ -177,6 +177,8 @@ h5,
     z-index: 1;
     opacity: 0.9;
     box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.4);
+    contain: layout style;
+    will-change: transform;
 }
 
 .shape-pink {
@@ -465,7 +467,10 @@ footer .social-links a:hover {
     color: var(--primary-color);
     font-family: var(--font-title);
     font-weight: 800;
-    text-shadow: none
+    text-shadow: none;
+    min-height: 1.2em;
+    min-width: 2ch;
+    display: inline-block
 }
 
 .countdown-item .small {
@@ -485,4 +490,77 @@ footer .social-links a:hover {
     .countdown-item .display-5 {
         font-size: 1.5rem
     }
+}
+
+.affiche-img {
+    max-height: 500px;
+    width: auto;
+    display: block;
+    margin: 0 auto
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px
+}
+
+.gallery-img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease
+}
+
+.card:hover .gallery-img {
+    transform: scale(1.05)
+}
+
+.gallery-img-tall {
+    height: 350px
+}
+
+.gallery-img-min {
+    min-height: 250px
+}
+
+.partner-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: white
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important
+}
+
+.partner-logo {
+    max-height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    opacity: 0.8
+}
+
+.partner-card:hover .partner-logo {
+    filter: grayscale(0%);
+    opacity: 1
+}
+
+.section-underline {
+    height: 3px;
+    opacity: 0.2
+}
+
+.adeorun-logo {
+    max-height: 120px
+}
+
+.map-iframe {
+    border: 0
 }
