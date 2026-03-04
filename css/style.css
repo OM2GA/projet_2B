@@ -39,6 +39,10 @@ h5,
     background-color: var(--primary-color) !important
 }
 
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn-outline-primary:focus,
@@ -592,6 +596,49 @@ footer .social-links a:hover {
 
 .map-iframe {
     border: 0
+}
+
+.table-pricing {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    background: transparent;
+}
+
+.table-pricing thead th {
+    border: none;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 1.2rem 1rem;
+}
+
+.table-pricing tbody tr {
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+.table-pricing tbody td {
+    padding: 1.5rem 1rem;
+    border: none;
+    vertical-align: middle;
+}
+
+.table-pricing tbody td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.table-pricing tbody td:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.bg-teal-light {
+    background-color: rgba(0, 150, 136, 0.1) !important;
+}
+
+.fw-black {
+    font-weight: 900 !important;
 }
 
 * {
