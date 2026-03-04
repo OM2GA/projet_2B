@@ -13,7 +13,6 @@
 html {
     scroll-behavior: smooth;
     direction: rtl;
-    /* Déplace la barre de défilement sur le côté gauche */
 }
 
 body {
@@ -21,7 +20,6 @@ body {
     color: #333;
     overflow-x: hidden;
     direction: ltr;
-    /* Rétablit le sens du texte normal (de gauche à droite) */
 }
 
 h1,
@@ -41,7 +39,6 @@ h5,
     background-color: var(--primary-color) !important
 }
 
-/* Supprimer le contour bleu par défaut de Bootstrap au clic/focus */
 .btn:focus,
 .btn:active:focus,
 .btn-outline-primary:focus,
@@ -160,6 +157,11 @@ h5,
     background-color: var(--primary-light);
     color: var(--primary-color);
     transform: scale(1.05)
+}
+
+.navbar-logo {
+    height: 50px;
+    width: auto;
 }
 
 .navbar .nav-link::after {
@@ -314,13 +316,12 @@ footer .social-links a:hover {
     background: var(--orange-color) !important
 }
 
-.grayscale {
-    filter: grayscale(100%);
-    transition: filter 0.3s
+.footer-logo {
+    height: auto !important;
 }
 
-.grayscale:hover {
-    filter: grayscale(0%)
+.grayscale {
+    filter: grayscale(100%);
 }
 
 @media (max-width:768px) {
@@ -588,39 +589,26 @@ footer .social-links a:hover {
     border: 0
 }
 
-/* ==========================================================================
-   Barre de défilement personnalisée (Custom Scrollbar) à gauche
-   ========================================================================== */
-
-/* Compatibilité Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) #f8f9fa;
 }
 
-/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
     width: 14px;
-    /* Largeur de la barre de scroll */
 }
 
 ::-webkit-scrollbar-track {
     background-color: #f8f9fa;
-    /* Couleur de la piste */
     border-right: 1px solid #e9ecef;
-    /* Sépare la barre du contenu visuellement */
 }
 
 ::-webkit-scrollbar-thumb {
-    /* Dégradé reprenant les couleurs principales du site (rose/rouge -> orange) */
     background: linear-gradient(to bottom, var(--primary-color), var(--orange-color));
     border-radius: 10px;
-    /* Bords bien arrondis */
     border: 3px solid #f8f9fa;
-    /* Espace autour du curseur pour un effet "flottant" */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    /* Assombrissement léger au survol de la souris */
     background: linear-gradient(to bottom, #900048, #d87658);
 }
