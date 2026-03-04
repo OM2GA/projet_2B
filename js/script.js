@@ -163,4 +163,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Copier l'adresse email
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+            const emailText = document.getElementById('emailText').innerText;
+
+            navigator.clipboard.writeText(emailText).then(() => {
+                const copyIcon = document.getElementById('copyIcon');
+                const btn = document.getElementById('copyEmailBtn');
+
+                // Changer la couleur (retirer outline-primary, ajouter success et text-white)
+                btn.classList.remove('btn-outline-primary');
+                btn.classList.add('btn-success', 'text-white');
+
+                // Changer l'icône
+                copyIcon.classList.remove('bi-clipboard');
+                copyIcon.classList.add('bi-check-lg');
+
+                // Revenir à l'état normal après 3 secondes
+                setTimeout(() => {
+                    btn.classList.remove('btn-success', 'text-white');
+                    btn.classList.add('btn-outline-primary');
+
+                    copyIcon.classList.remove('bi-check-lg');
+                    copyIcon.classList.add('bi-clipboard');
+                }, 3000);
+            }).catch(err => {
+                console.error('Erreur lors de la copie : ', err);
+                alert("Impossible de copier l'adresse.");
+            });
+        });
+    }
+
 });
