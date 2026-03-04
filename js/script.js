@@ -104,4 +104,63 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Galerie Modal Bénévoles
+    const volunteerGallery = document.getElementById('volunteerGallery');
+    const galleryModal = document.getElementById('galleryModal');
+
+    if (volunteerGallery && galleryModal) {
+        const volunteerImages = Array.from(volunteerGallery.querySelectorAll('img'));
+        const modalImage = document.getElementById('galleryModalImage');
+        const prevBtn = document.getElementById('galleryPrevBtn');
+        const nextBtn = document.getElementById('galleryNextBtn');
+        const bsModal = new bootstrap.Modal(galleryModal);
+
+        let currentIndex = 0;
+
+        const showImage = (index) => {
+            if (volunteerImages.length === 0) return;
+            if (index < 0) index = volunteerImages.length - 1;
+            if (index >= volunteerImages.length) index = 0;
+
+            currentIndex = index;
+            const img = volunteerImages[currentIndex];
+            // Get original src directly, could be thumbnail but here they are identical
+            modalImage.setAttribute('src', img.getAttribute('src'));
+            modalImage.setAttribute('alt', img.getAttribute('alt'));
+        };
+
+        volunteerImages.forEach((img, index) => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                showImage(index);
+                bsModal.show();
+            });
+        });
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+        }
+
+        // Support clavier
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowLeft') {
+                showImage(currentIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                showImage(currentIndex + 1);
+            }
+        };
+
+        galleryModal.addEventListener('shown.bs.modal', () => {
+            document.addEventListener('keydown', handleKeyDown);
+        });
+
+        galleryModal.addEventListener('hidden.bs.modal', () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        });
+    }
+
 });
