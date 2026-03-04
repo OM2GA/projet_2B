@@ -539,20 +539,19 @@ footer .social-links a:hover {
 
 .partner-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer;
 }
 
 .partner-logo {
     max-height: 100px;
     max-width: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
     transition: filter 0.3s ease;
-    opacity: 0.8
+    opacity: 1
 }
 
 .partner-card:hover .partner-logo {
-    filter: grayscale(0%);
     opacity: 1
 }
 
