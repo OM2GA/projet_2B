@@ -279,7 +279,12 @@ h5,
     transform: scale(1.05);
 }
 
-.card-borne-header::before {
+.bg-rayures {
+    position: relative;
+}
+
+.card-borne-header::before,
+.bg-rayures::before {
     content: '';
     position: absolute;
     top: 0;
