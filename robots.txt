@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://20bornes-andresy.netlify.app/sitemap.xml
+Sitemap: http://20bornes.chez.com/sitemap.xml
