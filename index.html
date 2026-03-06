@@ -301,6 +301,136 @@
                 transform: scale(1.02)
             }
         }
+
+        /* 3D Flip Card Effect */
+        .poster-flip-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .poster-flip-card {
+            position: relative;
+            width: 100%;
+            padding-top: 150%;
+            /* 2:3 aspect ratio roughly */
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        @media (hover: hover) {
+            .poster-flip-container:hover .poster-flip-card {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .poster-flip-container.flipped .poster-flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .poster-flip-front,
+        .poster-flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+            overflow: hidden;
+        }
+
+        .poster-flip-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .poster-flip-back {
+            background-color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .poster-flip-back img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .flip-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        @media (hover: hover) {
+            .poster-flip-container:hover .flip-indicator {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        .poster-flip-container.flipped .flip-indicator {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .text-touch {
+            display: none;
+        }
+
+        @media (hover: none) {
+            .text-hover {
+                display: none;
+            }
+
+            .text-touch {
+                display: inline;
+            }
+        }
+
+        .flip-indicator i {
+            font-size: 1.1rem;
+            animation: pulse-rotate 2s infinite;
+        }
+
+        @keyframes pulse-rotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+            }
+        }
     </style>
 
     <!-- Bootstrap chargé en synchrone pour éviter le FOUC/CLS -->
@@ -365,9 +495,10 @@
 
             <div class="d-flex justify-content-center flex-wrap align-items-start gap-3 mt-4">
                 <div class="text-center">
-                    <button class="btn btn-lg btn-accent shadow-lg rounded-pill px-5 text-uppercase fw-bold"
-                        disabled>Bientôt ouvert</button>
-                    <p class="small text-black-50 mt-2">Inscriptions prochainement</p>
+                    <a href="https://20-bornes-dandresy.adeorun.com/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-lg btn-accent shadow-lg rounded-pill px-5 text-uppercase fw-bold text-decoration-none">Inscription</a>
+                    <p class="small text-black-50 mt-2">Les inscriptions ouvriront le 15 juin 2026 à partir de 9h00 !
+                    </p>
                 </div>
                 <a href="html/epreuves.html" class="btn btn-lg btn-outline-dark rounded-pill px-4 fw-bold">Parcours</a>
             </div>
@@ -473,13 +604,24 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="images/affiche-20 bornes_novembre2025_6_11zon.webp" srcset="images/affiche-20bornes-400w.webp 400w,
-                                images/affiche-20bornes-800w.webp 800w,
-                                images/affiche-20 bornes_novembre2025_6_11zon.webp 2362w"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        alt="Affiche officielle course à pied 20 Bornes d'Andrésy 2026"
-                        class="img-fluid rounded-4 shadow-lg float-animation affiche-img" loading="lazy" width="333"
-                        height="500">
+                    <div class="poster-flip-container float-animation">
+                        <div class="poster-flip-card">
+                            <div class="poster-flip-front">
+                                <img src="images/affiche_2026.png"
+                                    alt="Affiche officielle course à pied 20 Bornes d'Andrésy 2026" loading="lazy">
+                                <div class="flip-indicator">
+                                    <span class="text-hover">Survolez</span>
+                                    <span class="text-touch">Appuyez</span>
+                                    <i class="bi bi-arrow-repeat"></i>
+                                </div>
+                            </div>
+                            <div class="poster-flip-back">
+                                <img src="images/20-bornes-dandresy_qr_code.png" alt="QR Code d'inscription"
+                                    loading="lazy">
+                                <p class="text-primary fw-bold text-center mb-0">Flashez pour vous inscrire !</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5">
                     <span class="text-accent fw-bold text-uppercase ls-2">Informations</span>

@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         copyEmailBtn.addEventListener('click', () => {
             const emailText = document.getElementById('emailText').innerText;
 
-            navigator.clipboard.writeText(emailText).then(() => {
+            const handleSuccess = () => {
                 const copyIcon = document.getElementById('copyIcon');
                 const btn = document.getElementById('copyEmailBtn');
 
@@ -189,10 +189,45 @@ document.addEventListener("DOMContentLoaded", () => {
                     copyIcon.classList.remove('bi-check-lg');
                     copyIcon.classList.add('bi-clipboard');
                 }, 3000);
-            }).catch(err => {
+            };
+
+            const handleError = (err) => {
                 console.error('Erreur lors de la copie : ', err);
                 alert("Impossible de copier l'adresse.");
-            });
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                // API moderne (HTTPS)
+                navigator.clipboard.writeText(emailText).then(handleSuccess).catch(handleError);
+            } else {
+                // Fallback pour les environnements non sécurisés (HTTP) ou navigateurs ne supportant pas l'API
+                const textArea = document.createElement("textarea");
+                textArea.value = emailText;
+
+                // Rendre le textarea invisible
+                textArea.style.position = "absolute";
+                textArea.style.left = "-999999px";
+
+                document.body.appendChild(textArea);
+                textArea.select();
+
+                try {
+                    document.execCommand('copy');
+                    handleSuccess();
+                } catch (err) {
+                    handleError(err);
+                }
+
+                document.body.removeChild(textArea);
+            }
+        });
+    }
+
+    // Gestion du flip de l'affiche sur mobile
+    const flipContainer = document.querySelector('.poster-flip-container');
+    if (flipContainer) {
+        flipContainer.addEventListener('click', function () {
+            this.classList.toggle('flipped');
         });
     }
 
