@@ -231,4 +231,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Animation au défilement (Scroll Reveal) ---
+    // Sélection automatique de certains éléments pour leur ajouter la classe .scroll-reveal
+    // On sélectionne de façon large pour que le site entier s'anime au fur et à mesure.
+    const elementsToReveal = document.querySelectorAll(
+        '.card-borne, .card, .partner-card, .gallery-img, section h2, main h2, main h3, .table-pricing tr, .alert'
+    );
+    
+    elementsToReveal.forEach((el, index) => {
+        el.classList.add('scroll-reveal');
+        // Un petit délai optionnel pour simuler un effet cascade sur les éléments frères
+        // Le délai est calculé pour éviter une attente trop longue.
+        if (el.tagName.toLowerCase() === 'tr' || el.classList.contains('card') || el.classList.contains('card-borne') || el.classList.contains('partner-card') || el.classList.contains('gallery-img')) {
+            el.style.transitionDelay = `${(index % 4) * 100}ms`;
+        }
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optionnel: On cesse d'observer l'élément pour ne l'animer qu'une fois
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Initialisation sur tous les éléments .scroll-reveal (inclus ceux qu'on vient d'ajouter)
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        revealObserver.observe(el);
+    });
+
 });
